@@ -1,5 +1,6 @@
 package com.example.natureexplorer
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -43,11 +44,29 @@ class MainActivity : AppCompatActivity() {
 
         navView.setNavigationItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.nav_home -> Toast.makeText(this, "Home clicked", Toast.LENGTH_SHORT).show()
-                R.id.nav_gallery -> Toast.makeText(this, "Gallery clicked", Toast.LENGTH_SHORT).show()
-                R.id.nav_favorites -> Toast.makeText(this, "Favorites clicked", Toast.LENGTH_SHORT).show()
-                R.id.nav_settings -> Toast.makeText(this, "Settings clicked", Toast.LENGTH_SHORT).show()
+
+                R.id.nav_home -> {
+                    Toast.makeText(this, "Home clicked", Toast.LENGTH_SHORT).show()
+                }
+
+                R.id.nav_gallery -> {
+                    startActivity(Intent(this, GalleryActivity::class.java))
+                }
+
+                R.id.nav_favorites -> {
+                    val intent = Intent(Intent.ACTION_SENDTO)
+                    intent.data = android.net.Uri.parse("mailto:test@email.com")
+                    intent.putExtra(Intent.EXTRA_SUBJECT, "Hello")
+                    startActivity(intent)
+                }
+
+                R.id.nav_settings -> {
+                    val intent = Intent(Intent.ACTION_VIEW)
+                    intent.data = android.net.Uri.parse("https://www.google.com")
+                    startActivity(intent)
+                }
             }
+
             drawerLayout.closeDrawers()
             true
         }
