@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- Card container used to display a single item (image + text) -->
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -6,12 +8,15 @@
     android:layout_margin="10dp"
     android:elevation="6dp">
 
+    <!-- Main vertical layout that stacks image and text -->
     <LinearLayout
         android:orientation="vertical"
         android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <!-- Image section of the card -->
+        <!-- Displays a nature image, fills width and crops nicely -->
         <ImageView
             android:id="@+id/cardImage"
             android:layout_width="match_parent"
@@ -19,6 +24,7 @@
             android:scaleType="centerCrop"
             android:src="@drawable/nature"/>
 
+        <!-- Title text for the card item -->
         <TextView
             android:id="@+id/cardTitle"
             android:text="Title"
@@ -28,6 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
+        <!-- Description text under the title -->
         <TextView
             android:id="@+id/cardDesc"
             android:text="Description"
